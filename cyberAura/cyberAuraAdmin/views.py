@@ -1,9 +1,11 @@
 from django.http import HttpResponse, HttpResponseNotFound, Http404, HttpResponseRedirect, HttpResponsePermanentRedirect
 from django.shortcuts import render, redirect
+from django.template.loader import render_to_string
 from django.urls import reverse
 
 def index(request):
-    return HttpResponse("Страница приложения cyberAura.")
+    t = render_to_string('')
+    return HttpResponse(t)
 
 
 def categories(request, cat_id):
