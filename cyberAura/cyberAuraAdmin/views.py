@@ -27,7 +27,7 @@ cats_db = [
 
 
 def index(request):
-    posts = cyberAuraAdmin.objects.filter(is_published=1)
+    posts = cyberAuraAdmin.published.all()
     data = {
         'title': 'Главная страница',
         'menu': menu,
