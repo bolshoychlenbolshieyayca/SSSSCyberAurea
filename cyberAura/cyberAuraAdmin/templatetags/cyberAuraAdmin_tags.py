@@ -1,6 +1,5 @@
 from django import template
-import cyberAuraAdmin.views as views
-
+from cyberAuraAdmin import views
 
 register = template.Library()
 
