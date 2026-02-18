@@ -27,10 +27,11 @@ cats_db = [
 
 
 def index(request):
+    posts = cyberAuraAdmin.objects.filter(is_published=1)
     data = {
         'title': 'Главная страница',
         'menu': menu,
-        'posts': data_db,
+        'posts': posts,
         'cat_selected': 0,
     }
     return render(request, 'cyberAuraAdmin/index.html', context=data)
@@ -40,8 +41,8 @@ def about(request):
     return render(request, 'cyberAuraAdmin/about.html', {'title': 'О сайте', 'menu': menu})
 
 
-def show_post(request, post_id):
-    post = get_object_or_404(cyberAuraAdmin, pk=post_id)
+def show_post(request, post_slug):
+    post = get_object_or_404(cyberAuraAdmin, slug=post_slug)
 
     data = {
         'title': post.title,
